@@ -1,0 +1,13 @@
+#!/bin/bash
+(>&2 echo "Running custom RLS wrapper")
+
+RLS=rls
+# Needs to pick up internal rustc libraries in the sysroot
+export LD_LIBRARY_PATH=$(rustc --print sysroot)/lib
+export DYLD_FALLBACK_LIBRARY_PATH="$(xcode-select --print-path)/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
+
+# Set some extra env vars you'd like
+export RUST_BACKTRACE=full
+
+# Important to also forward all the arguments to the RLS binary 
+$RLS "$@"

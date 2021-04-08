@@ -10,3 +10,7 @@ opencv = {version = "0.49", features = ["clang-runtime", "contrib", "buildtime-b
 [[bin]]
 name = "video-read-n-display"
 path = "src/BasicOps/videoReadnDisplay.rs"
+
+[[bin]]
+name = "image-read-n-display"
+path = "src/BasicOps/imageReadnDisplay.rs"
